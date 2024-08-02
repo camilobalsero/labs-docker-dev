@@ -1,4 +1,6 @@
 # Se descargo imagen ubuntu
+docker pull ubuntu
+
 Using default tag: latest
 latest: Pulling from library/ubuntu
 9c704ecd0c69: Pull complete 
@@ -7,6 +9,8 @@ Status: Downloaded newer image for ubuntu:latest
 docker.io/library/ubuntu:latest
 
 # Se descargo imagen de python 3.9
+docker pull python:3.9
+
 3.9: Pulling from library/python
 ca4e5d672725: Pull complete 
 30b93c12a9c9: Pull complete 
@@ -21,10 +25,12 @@ Status: Downloaded newer image for python:3.9
 docker.io/library/python:3.9
 
 # ejecutar el contenedor de ubuntu en modo interactivo
+docker run -it ubuntu bash
 
 root@a04edd8dfdc5:
 
 # ejecutar un servidor web apache en segundo plano utilizando el puerto 8000 del host al puerto 80 del contenedor
+docker run -d -p 8000:80 httpd
 
 Unable to find image 'httpd:latest' locally
 latest: Pulling from library/httpd
@@ -37,3 +43,20 @@ f214daa0692f: Pull complete
 Digest: sha256:932ac36fabe1d2103ed3edbe66224ed2afe0041b317bcdb6f5d9be63594f0030
 Status: Downloaded newer image for httpd:latest
 bfee8c4591123e37d3d311b75ed0b47ee2d2bf01b1d50ee72d7d17fef0af2df1
+
+# eliminar contenedores ubuntu
+docker rm a04edd8dfdc5
+
+a04edd8dfdc5
+
+# visualizar que si se haya eliminado el contenedor ubuntu 
+docker ps -a
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+bfee8c459112   httpd     "httpd-foreground"       4 minutes ago    Up 4 minutes    0.0.0.0:8000->80/tcp, :::8000->80/tcp   zen_thompson
+d90f0c0f592c   nginx     "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp   intelligent_liskov
+
+# eliminamos los contenedores detenidos
+docker container prune -f
+
+Total reclaimed space: 0B
