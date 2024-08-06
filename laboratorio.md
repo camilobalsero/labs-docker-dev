@@ -117,3 +117,20 @@ docker build -t ubuntu-updated:latest .
 
 docker run -d -p 80:80 my-nginx:latest
 af857b260163ef8c4da16c6a18d840dbb51ef4da8940bffc2f97e2afa1d0c8d5
+
+
+# Modificar el Dockerfile de Nginx para exponer el puerto 80
+
+ docker build -t my-nginx:latest .
+[+] Building 0.6s (6/6) FINISHED                                                                                                                 docker:default
+ => [internal] load build definition from Dockerfile                                                                                                       0.1s
+ => => transferring dockerfile: 147B                                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                           0.0s
+ => [internal] load .dockerignore                                                                                                                          0.1s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                                                             0.0s
+ => CACHED [2/2] RUN apt-get update && apt-get install -y nginx                                                                                            0.0s
+ => exporting to image                                                                                                                                     0.1s
+ => => exporting layers                                                                                                                                    0.0s
+ => => writing image sha256:2e31d5ae8172f49924ff475aeff6bb142e998dfe9ef60303005e1fb94b1dc020                                                               0.0s
+ => => naming to docker.io/library/my-nginx:latest                                                                                                         
