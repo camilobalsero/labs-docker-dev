@@ -59,4 +59,22 @@ d90f0c0f592c   nginx     "/docker-entrypoint.…"   12 minutes ago   Up 12 minut
 # eliminamos los contenedores detenidos
 docker container prune -f
 
-Total reclaimed space: 0B
+Total reclaimed space: 0B       
+
+# Documentación laboratorio 2
+
+# Crear el dockerfile y hacer el ejercicio 1 y 2 
+
+docker build -t ubuntu-updated:latest .
+[+] Building 10.9s (6/6) FINISHED                                                                                                                docker:default
+ => [internal] load build definition from Dockerfile                                                                                                       0.3s
+ => => transferring dockerfile: 96B                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                           0.0s
+ => [internal] load .dockerignore                                                                                                                          0.2s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                                                             0.1s
+ => [2/2] RUN apt-get update && apt-get upgrade -y                                                                                                         8.9s
+ => exporting to image                                                                                                                                     0.9s
+ => => exporting layers                                                                                                                                    0.8s
+ => => writing image sha256:b57ff4a90168188a95dad47bdd4afb26d76a4402693557ebdebdc01f7ef7240c                                                               0.0s
+ => => naming to docker.io/library/ubuntu-updated:latest
