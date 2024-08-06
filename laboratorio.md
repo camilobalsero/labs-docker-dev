@@ -171,4 +171,23 @@ af857b260163ef8c4da16c6a18d840dbb51ef4da8940bffc2f97e2afa1d0c8d5
  => exporting to image                                                                                                                          0.6s
  => => exporting layers                                                                                                                         0.5s
  => => writing image sha256:f9f06c09e61ae5d28615c3f3729434b81c0fc21a1f0e0690e073d80d8af031ad                                                    0.0s
- => => naming to docker.io/library/ubuntu-updated:latest          
+ => => naming to docker.io/library/ubuntu-updated:latest  
+
+ # Ejecutar un script Python al iniciar el contenedor
+
+ docker build -t python:3.9 .
+[+] Building 4.4s (8/8) FINISHED                                                                                                                 docker:default
+ => [internal] load build definition from Dockerfile                                                                                                       0.1s
+ => => transferring dockerfile: 110B                                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/python:3.9                                                                                              0.0s
+ => [internal] load .dockerignore                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [1/3] FROM docker.io/library/python:3.9                                                                                                                0.8s
+ => [internal] load build context                                                                                                                          0.2s
+ => => transferring context: 30B                                                                                                                           0.0s
+ => [2/3] WORKDIR /app                                                                                                                                     0.2s
+ => [3/3] COPY script.py .                                                                                                                                 0.2s
+ => exporting to image                                                                                                                                     2.7s
+ => => exporting layers                                                                                                                                    2.5s
+ => => writing image sha256:925bd2a7c5d8bb3629385b570647aa2fd423f03652a6db532f913c1bc5b4bb6d                                                               0.0s
+ => => naming to docker.io/library/python:3.9               
